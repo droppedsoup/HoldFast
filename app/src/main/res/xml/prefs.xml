@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory android:title="Staying connected">
+        <SwitchPreferenceCompat android:key="keep_awake" android:defaultValue="true"
+            android:title="Keep sessions alive when the phone locks"
+            android:summary="Holds a background wake lock and Wi-Fi lock while any session is open" />
+        <Preference android:key="battery" android:title="Battery optimisation" />
+        <SwitchPreferenceCompat android:key="keep_screen_on" android:defaultValue="false"
+            android:title="Keep screen on in terminal" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Alerts">
+        <SwitchPreferenceCompat android:key="notify_done" android:defaultValue="true"
+            android:title="Notify when a task finishes"
+            android:summary="Vibrate and notify when a tab stops working (e.g. Claude is done) or rings the bell, if you're not looking at it" />
+        <ListPreference android:key="done_idle_sec" android:defaultValue="6" android:title="Count as finished after"
+            android:entries="@array/idle_names" android:entryValues="@array/idle_values"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Terminal">
+        <ListPreference android:key="theme" android:title="Theme" app:useSimpleSummaryProvider="true" />
+        <EditTextPreference android:key="scrollback" android:defaultValue="10000"
+            android:title="Scrollback lines (new tabs)" app:useSimpleSummaryProvider="true" />
+        <EditTextPreference android:key="extra_keys" android:title="Extra keys bar"
+            android:defaultValue="ESC,TAB,STAB,CTRL,ALT,UP,DOWN,LEFT,RIGHT,|,~,/,-,HOME,END,PGUP,PGDN"
+            app:useSimpleSummaryProvider="true" />
+        <SwitchPreferenceCompat android:key="vol_down_ctrl" android:defaultValue="true"
+            android:title="Volume-down acts as Ctrl" />
+        <SwitchPreferenceCompat android:key="ime_autocorrect" android:defaultValue="true"
+            android:title="Autocorrect at the prompt"
+            android:summary="Keyboard suggestions, autocorrect and swipe typing work in the terminal. Your keyboard may learn words typed at password prompts." />
+        <SwitchPreferenceCompat android:key="char_input" android:defaultValue="true"
+            android:title="Plain keyboard input"
+            android:summary="Only used when autocorrect is off: blocks suggestions entirely" />
+        <SwitchPreferenceCompat android:key="tap_actions" android:defaultValue="true"
+            android:title="Tap to pick, open, paste"
+            android:summary="Tap a menu option to choose it, a link to open it, or highlighted code to paste it" />
+        <SwitchPreferenceCompat android:key="bell_vibrate" android:defaultValue="true"
+            android:title="Vibrate on bell" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Security">
+        <SwitchPreferenceCompat android:key="lock_enabled" android:defaultValue="false"
+            android:title="App lock" android:summary="Fingerprint, face or phone PIN to open HoldFast" />
+        <ListPreference android:key="lock_timeout" android:defaultValue="5" android:title="Lock after"
+            android:entries="@array/lock_names" android:entryValues="@array/lock_values"
+            app:useSimpleSummaryProvider="true" />
+        <SwitchPreferenceCompat android:key="secure_screen" android:defaultValue="false"
+            android:title="Block screenshots" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="About">
+        <Preference android:key="about" android:title="HoldFast" />
+    </PreferenceCategory>
+</PreferenceScreen>

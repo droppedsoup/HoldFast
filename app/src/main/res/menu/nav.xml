@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_hosts" android:title="Hosts" android:icon="@android:drawable/ic_menu_view" />
+    <item android:id="@+id/nav_keys" android:title="Keys" android:icon="@android:drawable/ic_lock_lock" />
+    <item android:id="@+id/nav_snippets" android:title="Snippets" android:icon="@android:drawable/ic_menu_edit" />
+    <item android:id="@+id/nav_forwards" android:title="Forwards" android:icon="@android:drawable/ic_menu_share" />
+</menu>

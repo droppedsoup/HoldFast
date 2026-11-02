@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="hf_bg">#0E1A24</color>
+    <color name="hf_surface">#16242F</color>
+    <color name="hf_teal">#3DDBC4</color>
+    <color name="hf_teal_dark">#1F8F80</color>
+    <color name="hf_text">#D8E2EA</color>
+    <color name="hf_muted">#8DA0AF</color>
+
+    <style name="Theme.HoldFast" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/hf_teal</item>
+        <item name="colorOnPrimary">#00201C</item>
+        <item name="colorPrimaryContainer">@color/hf_teal_dark</item>
+        <item name="colorSecondary">@color/hf_teal</item>
+        <item name="android:colorBackground">@color/hf_bg</item>
+        <item name="colorSurface">@color/hf_bg</item>
+        <item name="colorSurfaceContainer">@color/hf_surface</item>
+        <item name="android:statusBarColor">@color/hf_bg</item>
+        <item name="android:navigationBarColor">@color/hf_bg</item>
+    </style>
+
+    <string-array name="idle_names">
+        <item>3 seconds of quiet</item>
+        <item>6 seconds of quiet</item>
+        <item>10 seconds of quiet</item>
+        <item>20 seconds of quiet</item>
+        <item>60 seconds of quiet</item>
+    </string-array>
+    <string-array name="idle_values">
+        <item>3</item>
+        <item>6</item>
+        <item>10</item>
+        <item>20</item>
+        <item>60</item>
+    </string-array>
+    <string-array name="lock_names">
+        <item>Immediately</item>
+        <item>1 minute</item>
+        <item>5 minutes</item>
+        <item>15 minutes</item>
+        <item>1 hour</item>
+    </string-array>
+    <string-array name="lock_values">
+        <item>0</item>
+        <item>1</item>
+        <item>5</item>
+        <item>15</item>
+        <item>60</item>
+    </string-array>
+</resources>

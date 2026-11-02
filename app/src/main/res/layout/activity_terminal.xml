@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:fitsSystemWindows="true" android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar" android:layout_width="match_parent"
+        android:layout_height="44dp" app:titleTextAppearance="@style/TextAppearance.Material3.TitleSmall" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs" android:layout_width="match_parent" android:layout_height="36dp"
+        app:tabMode="scrollable" app:tabGravity="start" />
+
+    <LinearLayout android:id="@+id/banner" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:background="#33E8C46A"
+        android:gravity="center_vertical" android:orientation="horizontal"
+        android:paddingHorizontal="12dp" android:visibility="gone">
+        <TextView android:id="@+id/bannerText" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:paddingVertical="8dp" android:textColor="@color/hf_text" />
+        <Button android:id="@+id/openTailscale" style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tailscale" />
+        <Button android:id="@+id/retry" style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Reconnect" />
+    </LinearLayout>
+
+    <FrameLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <com.holdfast.ssh.ui.ImeProxyView
+            android:id="@+id/ime" android:layout_width="1dp" android:layout_height="1dp" />
+        <com.termux.view.TerminalView
+            android:id="@+id/terminal" android:layout_width="match_parent" android:layout_height="match_parent"
+            android:focusable="true" android:focusableInTouchMode="true"
+            android:paddingHorizontal="4dp" />
+        <!-- Long-press: a plain Android text copy of the screen, so highlighting works like everywhere else. -->
+        <ScrollView android:id="@+id/selectLayer" android:layout_width="match_parent"
+            android:layout_height="match_parent" android:visibility="gone" android:fillViewport="true">
+            <TextView android:id="@+id/selectText" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:paddingHorizontal="4dp"
+                android:includeFontPadding="false" android:textIsSelectable="true" />
+        </ScrollView>
+    </FrameLayout>
+
+    <LinearLayout android:id="@+id/composeBar" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:background="#1B2833"
+        android:gravity="center_vertical" android:orientation="horizontal"
+        android:paddingHorizontal="6dp" android:visibility="gone">
+        <EditText android:id="@+id/compose" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:hint="Type with autocorrect, then Send"
+            android:inputType="text|textAutoCorrect|textCapSentences" android:imeOptions="actionSend"
+            android:maxLines="4" android:textColor="@color/hf_text" android:textColorHint="#7F8C97" />
+        <Button android:id="@+id/composeSend" style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Send" />
+    </LinearLayout>
+
+    <HorizontalScrollView android:layout_width="match_parent" android:layout_height="44dp"
+        android:background="#1B2833" android:scrollbars="none">
+        <LinearLayout android:id="@+id/keys" android:layout_width="wrap_content"
+            android:layout_height="match_parent" android:orientation="horizontal" />
+    </HorizontalScrollView>
+</LinearLayout>
