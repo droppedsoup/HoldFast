@@ -553,12 +553,17 @@ class TerminalActivity : AppCompatActivity(), ActiveSession.Listener {
 
     // ---- tap actions: pick menu option, open link, paste highlighted code ----
 
-    private fun handleTap(e: MotionEvent): Boolean {
+    private fun handleTap(e: MotionEvent): Boolean =
+        try { handleTapInner(e) } catch (t: Exception) { false } // a tap must never kill the session
+
+    private fun handleTapInner(e: MotionEvent): Boolean {
         val s = current ?: return false
         val em = s.terminal.emulator ?: return false
         val scr = em.screen
         val (col, row) = b.terminal.getColumnAndRow(e, true).let { it[0] to it[1] }
         val top = b.terminal.topRow
+        // Tap can land outside the live screen (e.g. keyboard just shrank it) — ignore it.
+        if (row < -scr.activeTranscriptRows || row >= em.mRows) return false
         val rows = (top until top + em.mRows).toList()
         val line = { r: Int -> scr.getSelectedText(0, r, em.mColumns, r, false) ?: "" }
 
